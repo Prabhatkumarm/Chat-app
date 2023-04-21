@@ -1,5 +1,20 @@
 const socket = io();
 
+
+$('#chat-box').hide();
+
+$('#log-btn').click(()=>{
+    const username= $('#username').val();
+    socket.emit('login',{
+        username:username
+    })
+    $('#username').val("");
+    $('#login').hide();
+    $('#chat-box').show();
+})
+
+
+
 $('#btn').click(()=>{
     const msg=$('#message').val();
     // console.log(msg);

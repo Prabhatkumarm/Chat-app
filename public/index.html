@@ -12,7 +12,11 @@
 </head>
 <body>
     <h1 class="display-6 text-center">Chat app</h1>
-    <section class="w-50 mx-auto " >
+    <section id="login" class="w-50 mx-auto mb-2">
+        <input type="text" id="username" class="form-control m-1" placeholder="Username">
+        <button id="log-btn" class="btn btn-dark w-100 m-1">Login</button>
+    </section>
+    <section id="chat-box" class="w-50 mx-auto " >
         <ul id="chat" class="list-group overflow-scroll overflow-x-hidden" style="height:400px;">
             <li class="list-group-item "><strong>Name</strong> : <span>Message</span></li>        
         </ul>

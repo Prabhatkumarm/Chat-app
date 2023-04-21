@@ -6,7 +6,7 @@ const path = require('path');
 const socket =require('socket.io');
 const io = socket(server);  //this evolves our server into a socket
 
-
+const users={};
 
 app.use('/',express.static(path.join(__dirname,'public')));
 
@@ -15,8 +15,13 @@ io.on('connection',(socket)=>{
     socket.on('send-msg',(data)=>{
         io.emit('received-msg',{
             msgg:data.msgg,
-            id:socket.id
+            id:users[socket.id]
         })
+    })
+
+    socket.on('login',(data)=>{
+        users[socket.id]=data.username;
+        console.log(users);
     })
 })
 
